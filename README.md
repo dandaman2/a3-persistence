@@ -1,74 +1,37 @@
-Assignment 3 - Persistence: Two-tier Web Application with Flat File Database, Express server, and CSS template
-===
+## Odd Blog
 
-Due: September 16th, by 11:59 AM.
-
-This assignnment continues where we left off, extending it to use the most popular Node.js server framework (express), a flat file database suitable for small applications (lowdb), and a CSS application framework / template of your choice (Boostrap, Material Design, Semantic UI, Pure etc.)
+https://a3-dandaman2.glitch.me/
 
 
-Baseline Requirements
----
-
-Your application is required to implement the following functionalities:
-
-- a `Server`, created using Express (no alternatives will be accepted for this assignment)
-- a `Results` functionality which shows the entire dataset residing in the server's memory
-- a `Form/Entry` functionality which allows users to add, modify, and delete data items (must be all three!) associated with their user name / account.
-- Use of at least five [Express middleware packages](https://expressjs.com/en/resources/middleware.html). Explore! 
-- Basic authentication using the [Passport middleware](http://www.passportjs.org) for Express (this counts as one of your five middleware packages). We encourage using the Local strategy, but OAuth (Open Authentication) can also be used for additional technical achievement. The course staff cannot help you with the various flavors of OAuth strategies. YOU MUST PROVIDE US WITH ACCOUNT CREDENTIALS TO LOGIN TO YOUR APPLICATION IF YOU USE OAUTH. The course staff cannot be expected to have credentials for any particular OAuth service.
-- Persistent data storage in between server sessions. [lowdb](https://github.com/typicode/lowdb) is a suitable database package for this assignment and will be discussed in class.
-- Use of a [CSS framework or template](https://github.com/troxler/awesome-css-frameworks). This should do the bulk of your styling/CSS for you and be appropriate to your application. For example, don't use [NES.css](https://nostalgic-css.github.io/NES.css/) (which is awesome!) unless you're creating a game or some type of retro 80s site.
-
-Your application is required to demonstrate the use of the following concepts:
-
-HTML:
-- HTML input tags and form fields of various flavors (`<textarea>`, `<input>`, checkboxes, radio buttons etc.)
-- HTML that can display all data *for a particular authenticated user*. Note that this is different from the last assignnment, which required the display of all data in memory on the server.
-
-Note that it might make sense to have two simple pages for this assignment, one that handles login / authentication, and one that contains the rest of your application. For this assignment, it is acceptable to simply create new user accounts upon login if none exist, however, you must alert your users to this fact. If you're not using OAuth 
-
-CSS:
-- CSS styling should primarily be provided by your chosen template/framework. Oftentimes a great deal of care has been put into designing CSS templates; don't override their stylesheets unless you are extremely confident in your graphic design capabilities. The idea is to use CSS templates that give you a professional looking design aesthetic without requiring you to be a graphic designer yourself.
-
-JavaScript:
-- At minimum, a small amount of front-end JavaScript to get / fetch data from the server. See the [previous assignment](https://github.com/cs4241-19a/a2-shortstack) for reference.
-
-Node.js:
-- A server using Express, at least five pieces of Express middleware, and a persistent database (a flat file using lowdb is great).
-
-Deliverables
----
-
-Do the following to complete this assignment:
-
-1. Implement your project with the above requirements. A good potential starting point is to use the "hello-express" project template inside of Glitch; this appears as an option when you hit the "New Project" button. Use the work you did in the last assignment as a reference to implement functionality, as well as the notes from class on 9/9 and 9/12.
-2. If you developed your project locally, deploy your project to Glitch, and fill in the appropriate fields in your package.json file.
-3. Test your project to make sure that when someone goes to your main page on Glitch, it displays correctly.
-4. Ensure that your project has the proper naming scheme `a3-yourname` so we can find it.
-5. Fork this repository and modify the README to the specifications below. You do not need to include any of your project files in this repo (we will see those on Glitch), you only need to update and commit the README file.
-6. Create and submit a Pull Request to the original repo. Name the pull request using the following template: `a3-gitname-firstname-lastname`.
-
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
----
-
-## Your Web Application Title
-
-your glitch link e.g. http://a3-charlieroberts.glitch.me
-
-Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
-
-- the goal of the application
-- challenges you faced in realizing the application
-- what authentication strategy / database you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
-- what CSS framework you used and why.
-  - include any modifications to the CSS framework you made via custom CSS you authored.
-- the five Express middleware packages you used and a short (one sentence) summary of what each one does.
+My application for Assignment 3 is titled "Odd Blog" for a wingding message board. I've always been curious about the symbolic language of wingdings, and was wondering
+if the font type could be used for any kind of communication/messaging. Odd Blog is that curiosity come to life, as it's the world's first wingding messae board. Although
+the app is meant to be used as a wingdings communication platoforms, any user can use the toggle switch at the top of the site to covert all text (even inputted text) to 
+and from wingdings/english. All posts are stored in a SQLite3 database, which is persistent among sessions. 
+Odd Blog uses a Google OAuth login system for post posting and reviewing posted messages. (Users can both create new posts, as well as delete their own old posts. )
+  (Sample Credentials for Testers): username: a32019Tester@gmail.com | password: giveaplease
+In creating this site, I used the bootstrap CSS framework and w3 CSS stylesheets, in addition to adding my own styling in classes to change both the positioning and 
+displayed language/font of elements. 
+## The five middleware packages I used includes:
+ - **body-parser:** For both sending and parsing JSON files as part of GET and POST requests.
+ - **session:** For maintaining persistent login within user sessions (maintains even in reload).
+ - **passport & OAuth:** For logging in/out of the site using Google's OAuth API.
+ - **serve-favicon:** For changing the Favicon on the page tab, as well as maintaining it in the filesystem for browser lookup.
+ - **cors:** For making the site CORS accessible. An example of this can be found via the path https://a3-dandaman2.glitch.me/cors-entry, 
+         which retrieves a generated JSON file.
+ 
+The main challenge I faced while making this project was the fact that certain browsers (such as FireFox) do not support any symbolistic non-unicode font styles/langues 
+in their browser standards. This means that on those browsers all text is displayed as english, with the translator switch only changing the font styling to default. 
 
 ## Technical Achievements
-- **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
-- **Tech Achievement 2**: I used over ten Express middleware packages, enabling me to create a server that...
+- **Tech Achievement 1**: I used OAuth authentication via the Google strategy to allow users to log in with their google accounts.
+- **Tech Achievement 2**: Implemented a search bar which searches all posts from the database, showing only posts with the matching text.
+- **Tech Achievement 3**: Implemented a toggle switch which translates all text (as well as typed text) to either Wingdings or english.
+- **Tech Achievement 4**: Added a warning alert to FireFox users specifying that FireFox does not support symbolic, non-unicode characters.
+- **Tech Achievement 5**: Manipulated and set custom favicon.
+- **Tech Achievement 6**: Allowed resources to be shared via CORS accessibility.
 
 ### Design/Evaluation Achievements
-- **Design Achievement 1**: I tested my application using screen reading software, and found that...
-- **Design Achievement 2**: I followed best practices for accessibility, including providing alt attributes for images and using semantic HTML. There are no `<div>` or `<span>` elements in my document.
-- **Design Achievement 3**: We tested the application with n=X users, finding that...
+- **Design Achievement 1**: Implemented an interface which allowed all text on the page to be translateable. 
+- **Design Achievement 2**: Created custom Odd Blog favicon.
+- **Design Achievement 3**: Allows users to directly click on post text to view it, clicking anywhere outside the post body to deselect it. 
+- **Design Achievement 4**: Page is resizeable withing the browser, showing minimal text and reformatting element's positions. 
